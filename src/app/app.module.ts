@@ -12,13 +12,15 @@ import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
 const appRoutes:Routes = [
   { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: 'user/:id', component: UserComponent}
+  { path: 'users', component: UsersComponent, children:[
+    { path: ':id/:name', component: UserComponent},
+  ] },
+  { path: 'servers', component: ServersComponent, children: [
+    { path: ':id/edit', component: EditServerComponent },
+    { path: ':id', component: ServerComponent },
+  ]}
 ];
 
 @NgModule({
