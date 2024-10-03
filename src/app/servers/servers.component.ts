@@ -16,6 +16,6 @@ export class ServersComponent implements OnInit {
   }
 
   onReload(){
-
+    
   }
 }

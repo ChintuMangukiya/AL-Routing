@@ -13,7 +13,6 @@ export class EditServerComponent implements OnInit, CanComponentDeactive {
   serverName = '';
   serverStatus = '';
   allowEdit = false;
-
   changesSaved =false;
 
   constructor(
@@ -33,6 +32,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactive {
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
+
   onUpdateServer() {
     this.serversService.updateServer(this.server.id, {
       name: this.serverName,
@@ -54,4 +54,4 @@ export class EditServerComponent implements OnInit, CanComponentDeactive {
         return true;
       }
     }
-  }
+}
